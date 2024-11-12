@@ -8,6 +8,7 @@ import {
 import type { LinksFunction } from "@remix-run/node";
 
 import "./tailwind.css";
+import { useEffect } from "react";
 
 export const links: LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -22,9 +23,16 @@ export const links: LinksFunction = () => [
   },
 ];
 
+function useDarkMode() {
+  useEffect(() => {
+    document.documentElement.classList.add("dark");
+  }, []);
+}
+
 export function Layout({ children }: { children: React.ReactNode }) {
+  useDarkMode();
   return (
-    <html lang="en">
+    <html lang="en" className="bg-background">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />

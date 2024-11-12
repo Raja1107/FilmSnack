@@ -2,11 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
-body {
-  @apply bg-white dark:bg-gray-950;
-
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
+@layer base {
+  :root {
+    --text: #0d0d0d;
+    --background: #f0f0f0;
+    --primary: #0d0d0d;
+    --secondary: #d9d9d9;
+    --accent: #6949df;
+  }
+  .dark {
+    --text: #f2f2f2;
+    --background: #0f0f0f;
+    --primary: #f2f2f2;
+    --secondary: #262626;
+    --accent: #4120b6;
   }
 }
