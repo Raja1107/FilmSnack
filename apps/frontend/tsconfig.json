@@ -23,7 +23,8 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
-      "~/*": ["apps/app/*"]
+      "~/*": ["apps/app/*"],
+      "@/*": ["./app/*"]
     },
     "noEmit": true
   }
