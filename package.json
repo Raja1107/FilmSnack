@@ -5,5 +5,7 @@
   "scripts": {
     "dev": "pnpm -F filmsnack dev"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4"
+  }
 }
