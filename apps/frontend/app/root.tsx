@@ -3,11 +3,6 @@ import { Link, Links, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-ru
 import type React from 'react';
 import './tailwind.css';
 import { useEffect } from 'react';
-import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuList,
-} from './components/ui/navigation-menu';
 
 function useDarkMode() {
   useEffect(() => {
@@ -25,27 +20,25 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body>
+      <header className="sticky top-0 bg-background">
         <div className="flex items-center p-4 border-b-2">
-          <nav>
-            <NavigationMenu className="">
-              <NavigationMenuList className="p-4 space-x-6">
-                <NavigationMenuItem className="text-primary text-xl font-bold mr-4">
-                  <Link to="/">FilmSnack</Link>
-                </NavigationMenuItem>
-                <NavigationMenuItem className="text-muted-foreground hover:text-foreground">
-                  <Link to="/movies">Movies</Link>
-                </NavigationMenuItem>
-                <NavigationMenuItem className="text-muted-foreground hover:text-foreground">
-                  <Link to="/tv-shows">TV Shows</Link>
-                </NavigationMenuItem>
-                <NavigationMenuItem className="text-muted-foreground hover:text-foreground">
-                  <Link to="/lists">Lists</Link>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
+          <nav className="p-4 space-x-6">
+            <Link to={'/'} className="text-primary text-xl font-bold mr-4">
+              FilmSnack
+            </Link>
+            <Link to={'/movies'} className="text-muted-foreground hover:text-foreground">
+              Movies
+            </Link>{' '}
+            <Link to={'/tv-shows'} className="text-muted-foreground hover:text-foreground">
+              TV Shows
+            </Link>{' '}
+            <Link to={'/lists'} className="text-muted-foreground hover:text-foreground">
+              Lists
+            </Link>
           </nav>
         </div>
+      </header>
+      <body>
         {children}
         <ScrollRestoration />
         <Scripts />
